@@ -1,0 +1,20 @@
+name: Update JSON file
+
+on:
+  push:
+    paths:
+      - 'gigachads/**'
+  pull_request:
+    paths:
+      - 'gigachads/**'
+
+jobs:
+  update_json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update JSON file
+        run: |
+          python update.py
