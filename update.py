@@ -1,7 +1,7 @@
 from os import listdir
 
 directory = "gigachads"
-files = [i for i in listdir(directory)]
+files = [f'"{i}"' for i in listdir(directory)]
 
 filenames = ",\n    ".join(files)
 gigalist = f"""$a
