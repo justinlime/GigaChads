@@ -1,13 +1,14 @@
-from os import os
+from os import listdir
 
 directory = "gigachads"
-filenames = i[:len(directory) + 1] for i in os.listdir(directory)
+files = [i for i in listdir(directory)]
 
-gigalist = f"""\{
+filenames = ",\n    ".join(files)
+gigalist = f"""$a
   [
-    {f'{i},\n' for i in in filenames}
+    {filenames}
   ]
-\}"""
+$b""".replace("$a", "{").replace("$b", "}")
 
 with open("gigalist.json", "w") as f:
     f.write(gigalist)
