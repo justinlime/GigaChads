@@ -5,7 +5,7 @@ files = [f'"{i}"' for i in listdir(directory)]
 
 filenames = ",\n    ".join(files)
 gigalist = f"""$a
-  [
+  "gigachads": [
     {filenames}
   ]
 $b""".replace("$a", "{").replace("$b", "}")
