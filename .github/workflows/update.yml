@@ -8,6 +8,8 @@ on:
     paths:
       - 'gigachads/**'
 
+permissions: write-all
+
 jobs:
   update_json:
     runs-on: ubuntu-latest
