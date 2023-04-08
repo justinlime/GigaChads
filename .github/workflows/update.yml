@@ -1,0 +1,33 @@
+name: Update JSON file
+
+on:
+  push:
+    paths:
+      - 'gigachads/**'
+  pull_request:
+    paths:
+      - 'gigachads/**'
+
+permissions: write-all
+
+jobs:
+  update_json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+          
+      - name: Update JSON file
+        run: |
+          python update.py
+          
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9.1.1
+        with:
+          message: "Updated gigalist"
+          author_name: "Auto Updater"
