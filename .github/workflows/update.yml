@@ -16,15 +16,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-          
+        
       - name: Update JSON file
         run: |
-          python update.py
+          bash update.sh
           
       - name: Commit changes
         uses: EndBug/add-and-commit@v9.1.1
